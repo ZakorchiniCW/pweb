@@ -1,0 +1,85 @@
+body {
+    background-color: #2255ff;
+    font-family: arial;
+    margin: 0 auto;
+}
+
+h1,
+h2 {
+    font-family: calibri light, verdana;
+    color: aquamarine;
+}
+
+figure {
+    float: left;
+    margin: 0;
+}
+
+header {
+    text-align: center;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav {
+    font-family: cursive;
+    font-size: 20px;
+    color: chartreuse;
+}
+
+nav li {
+    position: relative;
+    display: inline;
+    font-size: 20px;
+    color: #cccccc;
+    padding: 0 5px;
+}
+
+nav li ul {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    display: none;
+}
+
+section {
+    width: 90%;
+    float: left;
+    background-size: auto;
+    background-color: darkblue;
+    font-family: papyrus, arial;
+    font-size: 20px;
+    color: #ffffcc;
+    text-align: center;
+    padding: 0 0 92px 0;
+}
+
+section hover {}
+
+#aside {
+    width: 10%;
+    height: auto;
+    float: right;
+    top: 250px;
+    right: 0px;
+    background-color: wheat;
+}
+
+aside {
+    font-family: serif, arial;
+    font-size: 20;
+    color: red;
+    text-align: center;
+}
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    font-family: papyrus, sans-serif, arial;
+    font-size: 16px;
+    color: palegreen;
+    text-align: center;
+    width: 100%;
+}
