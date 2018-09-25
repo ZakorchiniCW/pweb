@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ex. 3 Jokenpô - pedra, papel ou tesoura</title>
+
+    <script type="text/javascript" charset="UTF-8"></script>
+    <script>
+        var jogador, computador = 0,
+            sair = 0;
+
+        sair = confirm("Vamos jogar Jokenpô?");
+
+        if (sair == 1) {
+            //escolha do jogador
+            jogador = prompt("Escolha: pedra, papel ou tesoura");
+            jogador = jogador.toLowerCase();
+        }
+        while (sair==1 && jogador !== "pedra" && jogador !== "papel" && jogador !== "tesoura") {
+            alert("Escolha errada! Escolha novamente:");
+            jogador = prompt("Escolha: pedra, papel ou tesoura");
+            jogador = jogador.toLowerCase();
+        };
+
+
+        while (sair == 1) {
+
+            //funcao aleatoria		
+            computador = Math.random();
+
+            if (computador <= 0.33) {
+                alert("Você escolheu: " + jogador + "\nComputador escolheu: pedra");
+                if (jogador == "pedra") {
+                    alert("Empate! :|");
+                }
+                if (jogador == "papel") {
+                    alert("Você Venceu! \O/");
+                }
+                if (jogador == "tesoura") {
+                    alert("Você Perdeu! :c");
+                }
+
+            } else if (computador > 0.33 && computador <= 0.66) {
+                alert("Você escolheu: " + jogador + "\nComputador escolheu: papel");
+                if (jogador == "pedra") {
+                    alert("Você Perdeu! :c");
+                }
+                if (jogador == "papel") {
+                    alert("Empate! :|");
+                }
+                if (jogador == "tesoura") {
+                    alert("Você Venceu! \O/");
+                }
+                
+            } else {
+                alert("Você escolheu: " + jogador + "\nComputador escolheu: tesoura");
+                if (jogador == "pedra") {
+                    alert("Você Venceu! \O/");
+                }
+                if (jogador == "papel") {
+                    alert("Computador venceu! :c");
+                }
+                if (jogador == "tesoura") {
+                    alert("Empate! :|");
+                }
+            }
+            
+            sair = confirm("Deseja continuar jogando jokenpô?");
+            if (sair == 1) {
+                //escolha do jogador
+                jogador = prompt("Escolha: pedra, papel ou tesoura");
+                jogador = jogador.toLowerCase();
+            }
+
+            while (jogador !== "pedra" && jogador !== "papel" && jogador !== "tesoura") {
+                alert("Escolha errada! Escolha novamente:");
+                jogador = prompt("Escolha: pedra, papel ou tesoura");
+                jogador = jogador.toLowerCase();
+            };
+        };
+
+        alert("Até logo!");
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
