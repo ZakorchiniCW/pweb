@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício Objetos 2</title>
+
+    <script>
+        function Conta() {
+            var nome, banco, numConta, saldo;
+
+            this.getNome = function() {
+                return = nome;
+            }
+             this.getBanco = function() {
+                 return = banco;
+             }
+             this.getNunConta = function() {
+                 return = numConta;
+             }
+             this.getSaldo = function() {
+                 return = saldo;
+             }
+            this.setNome = function(vNome) {
+                nome = vNome;
+            }
+            this.setBanco = function(vBanco) {
+                 banco = vBanco;
+             }
+             this.setNunConta = function(vNumConta) {
+                 numConta = vNumConta;
+             }
+             this.setSaldo = function(vSaldo) {
+                 saldo = vSaldo;
+             }
+        }
+
+        function Corrente() {
+            var saldoEsp;
+
+            this.getSaldoEsp = function() {
+                return saldoEsp;
+            }
+            this.setSaldoEsp = function(vSaldoEsp) {
+                saldoEsp = vSaldoEsp;
+            }
+
+        }
+
+        function Poupanca() {
+            var juros, dtVenc;
+
+            this.getJuros = function() {
+                return juros;
+            }
+            this.getDtVenc = function() {
+                return dtVenc;
+            }
+            this.setJuros = function(vJuros) {
+                juros = vJuros;
+            }
+            this.setDtVenc = function(vDtVenc) {
+                dtVenc = vDtVenc;
+            }
+
+
+        }
+
+        Corrente.prototype = new Conta();
+        Poupanca.prototype = new Conta();
+
+        Corrente1 = new Corrente();
+        Poupanca1 = new Poupanca();
+
+        //for (i = 0; i < 3; i++) {
+        Corrente1.setNome(prompt("Qual o nome do Correntista: "));
+        Corrente1.setBanco(prompt("Qual o banco: "));
+        Corrente1.setNunConta(prompt("Qual o número da conta: "));
+        Corrente1.setSaldo(prompt("Qual o saldo: "));
+        // }
+
+        //for (i = 0; i < 3; i++) {
+        alert('Cliente: ' + Corrente1.getNome() +
+            '\n' + 'Banco: ' + Corrente1.getBanco() +
+            '\n' + 'Número da conta: ' + Corrente1.getNunConta() +
+            '\n' + 'Saldo: ' + Corrente1.getSaldo());
+        // }
+
+
+        /*this.mostraDados = function() {
+            alert("Nome do aluno: " + this.nome +
+                "\nRa: " + this.ra);
+        }
+
+        var objCorrentista[] = new Correntista(user) {
+            this.objCorrentista = user;
+        };
+
+        * user = 0;
+        a = confirm("Deseja inserir novo usuário?");
+        if (a == 1) {
+            tipo = prompt("Novo cliente possui conta corrente ou poupança?");
+            tipo = tipo.toLowerCase;
+            if (tipo = 'corrente') {
+
+            } else if (tipo = 'poupança') {
+
+            } else {
+                alert("Opção inválida!");
+            }
+            this.nome = prompt("digite nome do cliente ");
+            this.banco = prompt("digite nome do banco ");
+            this.numConta = prompt("digite numero da conta ");
+            this.saldo = prompt("digite saldo do cliente ");
+
+            alert(user + objCorrentista[user]);
+        }
+        objAluno.setNome("Joaquim");
+        objAluno.setRa("1234");
+        objAluno.mostraDados();*/
+
+    </script>
+</head>
+
+<body>
+    <section></section>
+</body>
+
+<footer>Create by Cleiton W. Zakorchini</footer>
+
+</html>

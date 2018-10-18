@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 2 - Contas</title>
+
+    <script>
+        function Contas() {
+            var nome;
+            this.getNome = function() {
+                return nome;
+            };
+            this.setNome = function(vNome) {
+                nome = vNome;
+            };
+        }
+
+        function PessoaJuridica() {
+            var cnpj;
+            this.getCNPJ = function() {
+                return cnpj;
+            };
+            this.setCNPJ = function(value) {
+                cnpj = value;
+            };
+        }
+
+        function Corrente() {
+            var cpf;
+            this.getCPF = function() {
+                return cpf;
+            };
+            this.setCPF = function(vCpf) {
+                cpf = vCpf;
+            };
+        }
+
+        Corrente.prototype = new Contas();
+        Poupanca.prototype = new Contas();
+
+        Corrente1 = new Corrente();
+        Poupanca = new Poupanca();
+
+        for (i = 0; i <= 2; i++) {
+            Corrente1.setCPF(prompt("cpf: "));
+            Corrente1.setNome(prompt('Nome: '));
+            Poupanca.setCNPJ('222222');
+            Poupanca.setNome('Solares doBrasil ');
+        }
+        
+        //for (i = 0; i <= 2; i++) {
+            alert(Corrente1.getNome() + '\n' + Corrente1.getCPF() + '\n' + Poupanca.getNome() + '\n' + Poupanca.getCNPJ());
+                    
+
+    </script>
+</head>
+
+<body>
+    <section></section>
+</body>
+
+<footer>Create by Cleiton W. Zakorchini</footer>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Teste</title>
+
+
+    <script>
+        var aluno1 = new Object();
+        aluno1.ra = "1234"
+        aluno1.nome = "José"
+
+        var aluno2 = {},
+            aluno2.ra = "1235",
+            aluno2.nome = "João";
+
+        var aluno3 = {
+            ra = "1236";nome = "Jeca"
+        };
+        var txt = '{"funcionarios":[' +
+            '{"nome":“Pedro","sobrenome":“Antunes" },' +
+            '{"nome":“José","sobrenome":“Egea" },' +
+            '{"nome":“Maria","sobrenome":“Santos" }]}’;
+
+        var obj = eval("(" + txt + ")");
+        alert(obj.funcionarios[1].nome);
+        alert(obj.funcionarios[1].sobrenome);
+
+        function Carro(marca, modelo, ano) {
+            this.marca = marca; // a marca do objeto que for criado
+            this.modelo = modelo;
+            this.ano = ano;
+            var ativo = true;
+        }
+
+        var meucarro = new Carro(“Fiat ", “Uno", 2015);
+        alert(meucarro.getAtivo());
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

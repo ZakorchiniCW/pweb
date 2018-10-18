@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício Objetos 1</title>
+
+    <script>
+    function Retangulo(x,y){
+        this.lado1=x;
+        this.lado2=y;
+        this.area=parseFloat(x) * parseFloat(y);
+        return 0;
+        
+    }
+    do{
+        x=prompt("entre com valor do lado 1: ");
+        y=prompt("entre com valor do lado 2: ");
+        
+        Retangulo(x,y);
+        
+        alert("Valor da área da figura é: " + this.area);
+        
+        continua=confirm("Deseja continuar?");
+        if(continua==0)
+            alert("Até logo!");
+    }while(continua==1);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
