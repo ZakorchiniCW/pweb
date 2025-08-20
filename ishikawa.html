@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ISHIKAWA</title>
+
+<style>
+  :root{ --muted:#f1f1f1; --accent:#c8c8c8; --dark:#333; --border:#bdbdbd; --blue:#0f62fe; }
+  body{ font-family: Arial, Helvetica, sans-serif; margin:2px; background:#fff; color:var(--dark); }
+  .container{ max-width:1200px; margin:4px; box-sizing:border-box; border:2px solid var(--border); }
+  /* Top verification area */
+  .top-tables{ display:flex; gap:8px; }
+  .verify{ flex:1; border:1px solid var(--border); padding:8px; background:linear-gradient(#fff,#fafafa); }
+  .verify h4{ margin:2px 0 4px; font-size:13px; text-align:center; }
+  .verify table{ width:100%; border-collapse:collapse; font-size:13px; }
+  .verify td{ border:1px solid var(--border); padding:6px; }
+  /* title middle */
+  .case-title{ margin:12px 0; padding:12px; border:1px solid var(--border); text-align:center; font-weight:700; background:var(--muted); }
+  /* collaborator and right info */
+  .row{ display:flex; gap:10px; }
+  .left{ flex:1; }
+  .right{ width:360px; border:1px solid var(--border); padding:8px; }
+  .right .field{ display:flex; justify-content:space-between; padding:6px 4px; border-bottom:1px dotted var(--border); font-size:13px; }
+  .right .field:last-child{ border-bottom:none; }
+  /* Fishbone area */
+  .fishbone{ margin-top:12px; display:grid; grid-template-columns: 250px 250px 250px; gap:12px; align-items:start; }
+  .column{ background:transparent; }
+  .box{ border:1px solid var(--border); padding:10px; min-height:60px; background:linear-gradient(#ffffff,#f9f9f9); }
+  .gray{ background:var(--accent); padding: 18px; color:#222; text-align:center; font-weight:600; }
+  .big-right{ border:1px solid var(--border); background:linear-gradient(#a9a9a9,#acacac); min-height:240px; display:flex; align-items:center; justify-content:center; font-size:28px; font-weight:600; }
+  .label{ text-align:center; margin-bottom:10px; font-weight:700; color:#555; }
+  .small{ contenteditable="true"; font-size:13px; color:#444; }
+  /* footer with measure boxes */
+  .foot-row{ display:flex; gap:12px; margin-top:10px; }
+  .foot{ flex:1; }
+  .foot .box{ min-height:80px; }
+  .container2 {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+  .hexagon {
+            width: 25px;
+            height: 20px;
+            background-color: #004466;
+            position: relative;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+   .line {
+            width: 200px;
+            height: 6px;
+            background-color: #004466;
+            position: relative;
+        }
+   .arrow {
+            position: absolute;
+            top: -6px;
+            right: -3px;
+            width: 6;
+            height: 6;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 10px solid #004466;
+        }
+   
+  /* responsive */
+  @media(max-width:980px){
+    .row{ flex-direction:column; }
+    .fishbone{ grid-template-columns: 1fr; }
+    .right{ width:100%; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="top-tables">
+    <div class="verify">
+      
+	<h4> ITENS PARA SEREM VERIFICADOS </h4>
+
+      <table>
+	
+        <tbody><tr><td>1 - Estou com todos os EPI's necessários para esta atividade?</td>
+	<td>SÍM <input type="checkbox" checked=""></td>
+	<td>NÃO <input type="checkbox"></td>
+	<td>N/A <input type="checkbox"></td></tr>
+
+        <tr><td>2 - O local está isolado/sinalizado?</td>
+	<td>SÍM <input type="checkbox" checked=""></td>
+	<td>NÃO <input type="checkbox"></td>
+	<td>N/A <input type="checkbox"></td></tr> 
+
+       <tr><td>3 - O equipamento foi bloqueado?</td>
+	<td>SÍM <input type="checkbox" checked=""></td>
+	<td>NÃO <input type="checkbox"></td>
+	<td>N/A <input type="checkbox"></td></tr>
+      </tbody></table>
+    </div>
+    <div class="verify">
+
+      <h4> ITENS PARA SEREM VERIFICADOS </h4>
+
+      <table>
+	<tbody><tr><td>4 - As ferramentas estão em boas condições e possuo recurso necessário?</td>	<td>SÍM <input type="checkbox" checked=""></td>
+	<td>NÃO <input type="checkbox"></td>
+	<td>N/A <input type="checkbox"></td></tr>
+
+        <tr><td>5 - Estou habilitado e capacitado ao serviço?</td>
+	<td>SÍM <input type="checkbox" checked=""></td>
+	<td>NÃO <input type="checkbox"></td>
+	<td>N/A <input type="checkbox"></td></tr>
+        
+	<tr><td>6 - Estou me sentindo bem para executar esta atividade?</td>
+	<td>SÍM <input type="checkbox" checked=""></td>
+	<td>NÃO <input type="checkbox"></td>
+	<td>N/A <input type="checkbox"></td></tr>
+      </tbody></table>
+    </div>
+  </div>
+
+  <div class="case-title" contenteditable="true">tela danificada</div>
+
+  <div class="row">
+    <div class="left" style="margin-left: 12px">
+      <div style="margin-bottom:6px;" contenteditable="true"><strong>Colaborador:</strong> teste1</div>
+      <div class="fishbone">
+        <div class="column">
+          <div class="label gray">Material</div>
+          <div class="box small" contenteditable="true">- N/A</div>
+          <div style="height:18px"></div>
+	  </div>
+	
+        <div class="column">
+          <div class="label gray">Método</div>
+          <div class="box small" contenteditable="true">- Checar alinhamento, checar vazamentos, verificar comando elétrico, eliminar falhas e testar</div>
+          <div style="height:18px"></div>
+          </div>
+
+        <div class="column">
+          <div class="label gray">Máquina</div>
+          <div class="box small" contenteditable="true">- Comando elétrico, conjunto mecânico</div>
+          <div style="height:18px"></div>
+          </div></div>
+
+	<div class="container2">
+          <div class="hexagon" style="margin-left:100px"></div>
+          <div class="line"><div class="arrow"></div></div>
+          <div class="hexagon"></div>
+          <div class="line"><div class="arrow"></div></div>
+          <div class="hexagon"></div>
+	</div>
+	
+	<div class="fishbone">
+	<div class="column">
+		<div class="box small" contenteditable="true">- Checar funcionamento do contator de aquecimento, corrigir falha de montagem, eliminar falha, testar ciclos junto à produção e liberar</div>
+        <div class="label gray" style="margin-top: 10px">Medida</div>
+	</div>	
+
+	<div class="column">
+		<div class="box small" contenteditable="true">- Eletricista, ajustador</div>
+        <div class="label gray" style="margin-top: 10px">Mão de Obra</div>
+	</div>
+
+	<div class="column">
+		<div class="box small" contenteditable="true">- Temperatura, agentes contaminantes</div>
+        <div class="label gray" style="margin-top: 10px">Meio Ambiente</div>
+	</div>
+
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="field"><div>Chapa:</div><div id="meuDiv" contenteditable="true">37002824</div></div>
+
+      <div class="field"><div>Equipamento:</div><div id="meuDiv1" contenteditable="true">petewe</div></div>
+
+      <div class="field"><div>Inventário SAP:</div><div id="meuDiv2" contenteditable="true">12345678</div></div>
+
+      <div class="field"><div>Ordem PM:</div><div id="meuDiv3" contenteditable="true">987654321</div></div>
+
+      <div class="field"><div>Data:</div><div id="data-atual">14/08/2025</div>
+
+<script>
+  document.getElementById("meuDiv").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault(); // Impede quebra de linha
+    }
+  });
+</script>
+
+<script>
+  document.getElementById("meuDiv1").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault(); // Impede quebra de linha
+    }
+  });
+</script>
+
+<script>
+  document.getElementById("meuDiv2").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault(); // Impede quebra de linha
+    }
+  });
+</script>
+
+<script>
+  document.getElementById("meuDiv3").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault(); // Impede quebra de linha
+    }
+  });
+</script>
+
+<script>
+  function atualizarData() {
+    const agora = new Date();
+    const dia = String(agora.getDate()).padStart(2, '0');
+    const mes = String(agora.getMonth() + 1).padStart(2, '0'); // January is 0!
+    const ano = agora.getFullYear();
+    const dataFormatada = `${dia}/${mes}/${ano}`;
+
+    document.getElementById("data-atual").textContent = dataFormatada;
+  }
+
+  atualizarData(); // Chama a função para exibir a data ao carregar a página
+  //Para atualizar a cada segundo, use setInterval
+  //setInterval(atualizarData, 1000); // Atualiza a cada segundo
+</script></div>
+
+    <div style="margin-top:10px" class="big-right" contenteditable="true">Comando elétrico</div></div>
+  </div>
+
+</div>
+
+</body></html>
