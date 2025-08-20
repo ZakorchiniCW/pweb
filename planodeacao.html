@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PLANO DE AÇÃO</title>
+
+<style>
+  :root{ --muted:#f1f1f1; --accent:#c8c8c8; --dark:#333; --border:#bdbdbd; --blue:#0f62fe; }
+  body{ font-family: Arial, Helvetica, sans-serif; margin:2px; background:#fff; color:var(--dark); }
+  .container{ max-width:1200px; margin:4px; margin-bottom: 10px; box-sizing:border-box; border:2px solid var(--border); }
+  .top-tables{ display:flex; gap:8px; }
+  .verify{ flex:1; border:1px solid var(--border); padding:8px; background:linear-gradient(#fff,#fafafa); }
+  .verify h4{ margin:2px 0 4px; font-size:13px; text-align:center; }
+  .verify table{ width:100%; border-collapse:collapse; font-size:13px; }
+  .verify td{ border:1px solid var(--border); padding:6px; }
+  .case-title{ margin:12px 0; padding:12px; border:1px solid var(--border); text-align:center; font-weight:700; background:var(--muted); }
+  .row{ display:flex; gap:10px; }
+  .left{ 360px; }
+  .right{ flex:1; border:1px solid var(--border); padding:8px; }
+  .right .field{ display:flex; justify-content:space-between; padding:6px 4px; border-bottom:1px dotted var(--border); font-size:13px; }
+  .right .field:last-child{ border-bottom:none; }
+  .fishbone{ margin-top:12px; display:grid; grid-template-columns: 250px 250px 250px; gap:12px; align-items:start; }
+  .column{ background:transparent; }
+  .box{ border:1px solid var(--border); padding:10px; min-height:60px; background:linear-gradient(#ffffff,#f9f9f9); }
+  .gray{ background:var(--accent); padding: 18px; color:#222; text-align:center; font-weight:600; }
+  .big-right{ border:1px solid var(--border); background:linear-gradient(#a9a9a9,#acacac); min-height:240px; display:flex; align-items:center; justify-content:center; font-size:28px; font-weight:600; }
+  .label{ text-align:center; margin-bottom:10px; font-weight:700; color:#555; }
+  .small{ contenteditable="true"; font-size:13px; color:#444; }
+  .foot-row{ display:flex; gap:12px; margin-top:10px; }
+  .foot{ flex:1; }
+  .foot .box{ min-height:80px; }
+  .container2 { margin-top:12px; display: flex; align-items: center; gap: 15px; }
+  .hexagon { width: 25px; height: 20px; background-color: #004466; position: relative;
+             clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); }
+  .line { width: 200px; height: 6px; background-color: #004466; position: relative; }
+  .arrow { position: absolute; top: -6px; right: -3px; width: 6; height: 6;
+           border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-left: 10px solid #004466; }
+  @media(max-width:980px){
+    .row{ flex-direction:column; }
+    .fishbone{ grid-template-columns: 1fr; }
+    .right{ width:100%; }
+  }
+
+  /* --- Estilos da nova tabela --- */
+  table { border-collapse: collapse; font-size:14px; margin-top:20px; }
+  th, td { border:1px solid #999; padding:6px; text-align:center; }
+  th { background:linear-gradient(#a9a9a9,#acacac); }
+  select { width:100%; padding:4px; }
+  .status-circle {
+    width: 24px; height: 24px; border: 1px solid #333; border-radius: 50%; margin: auto;
+    background: white;
+  }
+  .relevancia option { font-size:20px; text-align:center; }
+</style>
+</head>
+
+
+<body>
+ 
+
+      
+    
+
+    
+  
+
+
+
+ <div class="container" style="margin-left: 4px; margin-top:20px;"> <h2 style="text-align: center; background:yellow; margin-top: 4px; margin-bottom: 1px;">Plano de Ação</h2>
+  <table id="plano-acao" style="margin-top: 4px; margin-left: 4px;">
+    <thead>
+      <tr>
+        <th>Nr.</th><th style="width: 270px">Ação (Action)</th>
+        <th style="width:50px">Relevância (Relevance)</th>
+        <th style="width:75px">Prazo KW (Termin)</th>
+        <th style="width:65px">Prioridade (Priorität)</th>
+        <th style="width: 180px">Responsável (Verantwortlich)</th>
+        <th style="width:70px">Status %</th>
+        <th style="width:50px">Status</th>
+        <th style="width: 250px">Observação (Bemerkung)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td contenteditable="true">1</td><td contenteditable="true"><br></td>
+        <td>
+          <select class="relevancia" style="color: black;">
+            <option value=""></option>
+            <option value="triangulo">▲</option>
+            <option value="circulo">●</option>
+            <option value="cruz">✖</option>
+          </select>
+        </td>
+        <td contenteditable="true"><br></td>
+        <td>
+          <select>
+            <option value=""></option>
+            <option value="baixa">Baixa</option>
+            <option value="media">Média</option>
+            <option value="alta">Alta</option>
+          </select>
+        </td>
+        <td contenteditable="true"></td>
+        <td>
+          <select onchange="atualizarStatus(this)">
+            <option value=""></option>
+            <option value="0">0%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          </select>
+        </td>
+        <td><canvas class="status-circle" width="24" height="24"></canvas></td>
+        <td contenteditable="true"></td>
+      </tr>
+      
+    <tr>
+        <td contenteditable="true">2</td><td contenteditable="true"><br></td>
+        <td>
+          <select class="relevancia" style="color: black;">
+            <option value=""></option>
+            <option value="triangulo">▲</option>
+            <option value="circulo">●</option>
+            <option value="cruz">✖</option>
+          </select>
+        </td>
+        <td contenteditable="true"><br></td>
+        <td>
+          <select>
+            <option value=""></option>
+            <option value="baixa">Baixa</option>
+            <option value="media">Média</option>
+            <option value="alta">Alta</option>
+          </select>
+        </td>
+        <td contenteditable="true"></td>
+        <td>
+          <select onchange="atualizarStatus(this)">
+            <option value=""></option>
+            <option value="0">0%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          </select>
+        </td>
+        <td><canvas class="status-circle" width="24" height="24"></canvas></td>
+        <td contenteditable="true"></td>
+      </tr><tr>
+        <td contenteditable="true">3</td><td contenteditable="true"><br></td>
+        <td>
+          <select class="relevancia" style="color: black;">
+            <option value=""></option>
+            <option value="triangulo">▲</option>
+            <option value="circulo">●</option>
+            <option value="cruz">✖</option>
+          </select>
+        </td>
+        <td contenteditable="true"><br></td>
+        <td>
+          <select>
+            <option value=""></option>
+            <option value="baixa">Baixa</option>
+            <option value="media">Média</option>
+            <option value="alta">Alta</option>
+          </select>
+        </td>
+        <td contenteditable="true"></td>
+        <td>
+          <select onchange="atualizarStatus(this)">
+            <option value=""></option>
+            <option value="0">0%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          </select>
+        </td>
+        <td><canvas class="status-circle" width="24" height="24"></canvas></td>
+        <td contenteditable="true"></td>
+      </tr><tr>
+        <td contenteditable="true">4</td><td contenteditable="true"><br></td>
+        <td>
+          <select class="relevancia" style="color: black;">
+            <option value=""></option>
+            <option value="triangulo">▲</option>
+            <option value="circulo">●</option>
+            <option value="cruz">✖</option>
+          </select>
+        </td>
+        <td contenteditable="true"><br></td>
+        <td>
+          <select>
+            <option value=""></option>
+            <option value="baixa">Baixa</option>
+            <option value="media">Média</option>
+            <option value="alta">Alta</option>
+          </select>
+        </td>
+        <td contenteditable="true"></td>
+        <td>
+          <select onchange="atualizarStatus(this)">
+            <option value=""></option>
+            <option value="0">0%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          </select>
+        </td>
+        <td><canvas class="status-circle" width="24" height="24"></canvas></td>
+        <td contenteditable="true"></td>
+      </tr><tr>
+        <td contenteditable="true">5</td><td contenteditable="true"><br></td>
+        <td>
+          <select class="relevancia" style="color: black;">
+            <option value=""></option>
+            <option value="triangulo">▲</option>
+            <option value="circulo">●</option>
+            <option value="cruz">✖</option>
+          </select>
+        </td>
+        <td contenteditable="true"><br></td>
+        <td>
+          <select>
+            <option value=""></option>
+            <option value="baixa">Baixa</option>
+            <option value="media">Média</option>
+            <option value="alta">Alta</option>
+          </select>
+        </td>
+        <td contenteditable="true"></td>
+        <td>
+          <select onchange="atualizarStatus(this)">
+            <option value=""></option>
+            <option value="0">0%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          </select>
+        </td>
+        <td><canvas class="status-circle" width="24" height="24"></canvas></td>
+        <td contenteditable="true"></td>
+      </tr><tr>
+        <td contenteditable="true">6</td><td contenteditable="true"><br></td>
+        <td>
+          <select class="relevancia" style="color: black;">
+            <option value=""></option>
+            <option value="triangulo">▲</option>
+            <option value="circulo">●</option>
+            <option value="cruz">✖</option>
+          </select>
+        </td>
+        <td contenteditable="true"><br></td>
+        <td>
+          <select>
+            <option value=""></option>
+            <option value="baixa">Baixa</option>
+            <option value="media">Média</option>
+            <option value="alta">Alta</option>
+          </select>
+        </td>
+        <td contenteditable="true"></td>
+        <td>
+          <select onchange="atualizarStatus(this)">
+            <option value=""></option>
+            <option value="0">0%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          </select>
+        </td>
+        <td><canvas class="status-circle" width="24" height="24"></canvas></td>
+        <td contenteditable="true"></td>
+      </tr><tr>
+        <td contenteditable="true">7</td><td contenteditable="true"><br></td>
+        <td>
+          <select class="relevancia" style="color: black;">
+            <option value=""></option>
+            <option value="triangulo">▲</option>
+            <option value="circulo">●</option>
+            <option value="cruz">✖</option>
+          </select>
+        </td>
+        <td contenteditable="true"><br></td>
+        <td>
+          <select>
+            <option value=""></option>
+            <option value="baixa">Baixa</option>
+            <option value="media">Média</option>
+            <option value="alta">Alta</option>
+          </select>
+        </td>
+        <td contenteditable="true"></td>
+        <td>
+          <select onchange="atualizarStatus(this)">
+            <option value=""></option>
+            <option value="0">0%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          </select>
+        </td>
+        <td><canvas class="status-circle" width="24" height="24"></canvas></td>
+        <td contenteditable="true"></td>
+      </tr><tr>
+        <td contenteditable="true">8</td><td contenteditable="true"><br></td>
+        <td>
+          <select class="relevancia" style="color: black;">
+            <option value=""></option>
+            <option value="triangulo">▲</option>
+            <option value="circulo">●</option>
+            <option value="cruz">✖</option>
+          </select>
+        </td>
+        <td contenteditable="true"><br></td>
+        <td>
+          <select>
+            <option value=""></option>
+            <option value="baixa">Baixa</option>
+            <option value="media">Média</option>
+            <option value="alta">Alta</option>
+          </select>
+        </td>
+        <td contenteditable="true"></td>
+        <td>
+          <select onchange="atualizarStatus(this)">
+            <option value=""></option>
+            <option value="0">0%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          </select>
+        </td>
+        <td><canvas class="status-circle" width="24" height="24"></canvas></td>
+        <td contenteditable="true"></td>
+      </tr><tr>
+        <td contenteditable="true">9</td><td contenteditable="true"><br></td>
+        <td>
+          <select class="relevancia" style="color: black;">
+            <option value=""></option>
+            <option value="triangulo">▲</option>
+            <option value="circulo">●</option>
+            <option value="cruz">✖</option>
+          </select>
+        </td>
+        <td contenteditable="true"><br></td>
+        <td>
+          <select>
+            <option value=""></option>
+            <option value="baixa">Baixa</option>
+            <option value="media">Média</option>
+            <option value="alta">Alta</option>
+          </select>
+        </td>
+        <td contenteditable="true"></td>
+        <td>
+          <select onchange="atualizarStatus(this)">
+            <option value=""></option>
+            <option value="0">0%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          </select>
+        </td>
+        <td><canvas class="status-circle" width="24" height="24"></canvas></td>
+        <td contenteditable="true"></td>
+      </tr><tr>
+        <td contenteditable="true">10</td><td contenteditable="true"><br></td>
+        <td>
+          <select class="relevancia" style="color: black;">
+            <option value=""></option>
+            <option value="triangulo">▲</option>
+            <option value="circulo">●</option>
+            <option value="cruz">✖</option>
+          </select>
+        </td>
+        <td contenteditable="true"><br></td>
+        <td>
+          <select>
+            <option value=""></option>
+            <option value="baixa">Baixa</option>
+            <option value="media">Média</option>
+            <option value="alta">Alta</option>
+          </select>
+        </td>
+        <td contenteditable="true"></td>
+        <td>
+          <select onchange="atualizarStatus(this)">
+            <option value=""></option>
+            <option value="0">0%</option>
+            <option value="25">25%</option>
+            <option value="50">50%</option>
+            <option value="75">75%</option>
+            <option value="100">100%</option>
+          </select>
+        </td>
+        <td><canvas class="status-circle" width="24" height="24"></canvas></td>
+        <td contenteditable="true"></td>
+      </tr></tbody>
+  </table>
+
+  <script>
+    // Pintar cores dos ícones da relevância
+    document.querySelectorAll('.relevancia').forEach(select => {
+      select.addEventListener('change', () => {
+        if(select.value === "triangulo"){
+          select.style.color = "gold";
+        } else if(select.value === "circulo"){
+          select.style.color = "green";
+        } else if(select.value === "cruz"){
+          select.style.color = "red";
+        } else {
+          select.style.color = "black";
+        }
+      });
+    });
+
+    // Função para desenhar pizza de status
+    function atualizarStatus(select) {
+      const value = parseInt(select.value);
+      const canvas = select.parentElement.nextElementSibling.querySelector('canvas');
+      const ctx = canvas.getContext("2d");
+      const radius = canvas.width / 2;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      if (!value && value !== 0) return;
+
+      let fraction = 0;
+      if(value === 25) fraction = 0.25;
+      if(value === 50) fraction = 0.5;
+      if(value === 75) fraction = 0.75;
+      if(value === 100) fraction = 1;
+
+      if(value > 0){
+        ctx.beginPath();
+        ctx.moveTo(radius, radius);
+        ctx.arc(radius, radius, radius, -Math.PI/2, -Math.PI/2 + fraction * 2 * Math.PI);
+        ctx.closePath();
+        ctx.fillStyle = "black";
+        ctx.fill();
+      }
+      ctx.beginPath();
+      ctx.arc(radius, radius, radius, 0, 2*Math.PI);
+      ctx.strokeStyle = "black";
+      ctx.stroke();
+    }
+
+    // Inicializar todos os canvas
+    document.querySelectorAll('.status-circle').forEach(c => {
+      c.width = 24; c.height = 24;
+      const ctx = c.getContext("2d");
+      ctx.beginPath();
+      ctx.arc(12, 12, 12, 0, 2*Math.PI);
+      ctx.strokeStyle = "black";
+      ctx.stroke();
+    });
+  </script>
+
+
+<div class="row" style="margin-top: 8px; margin-bottom: 8px; margin-right: 4px; margin-left: 4px;">
+<div class="left">
+<table border="1" style="width:300px; margin: 4px 40px 4px 0px; border-collapse:collapse;">
+  
+  <tbody>
+    <tr>
+      <td style="color: red; font-size:16px; font-weight: bold;">✖</td>
+      <td style="font-size:16px;">Causa Direta</td>
+    </tr>
+    <tr>
+      <td style="color: yellow; font-size:16px; font-weight: bold;">▲</td>
+      <td style="font-size:16px;">Pré-requisito para a ação</td>
+    </tr>
+    <tr>
+      <td style="color: green; font-size:16px; font-weight: bold;">●</td>
+      <td style="font-size:16px;">OK</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="right" style="background:linear-gradient(#a9a9a9,#acacac);width:auto; min-height:70px; border:1px solid #999; padding:8px;&gt;
+	&lt;span contenteditable=" false"="">
+	<b>Causa raiz:</b> 
+  	<span contenteditable="true">Digite aqui a descrição da causa raiz...</span>
+</div>
+
+	
+</div>
+</div>
+
+
+</body></html>
