@@ -1,7 +1,9 @@
 <!DOCTYPE html>
+<!-- saved from url=(0090)file:///C:/Users/zakorcei/OneDrive%20-%20Schaeffler/Testes%20html/Finalizado/Ishikawa.html -->
 <html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ISHIKAWA</title>
+<title>Ishikawa</title>
+
 
 <style>
   :root{ --muted:#f1f1f1; --accent:#c8c8c8; --dark:#333; --border:#bdbdbd; --blue:#0f62fe; }
@@ -14,7 +16,7 @@
   .verify table{ width:100%; border-collapse:collapse; font-size:13px; }
   .verify td{ border:1px solid var(--border); padding:6px; }
   /* title middle */
-  .case-title{ margin:12px 0; padding:12px; border:1px solid var(--border); text-align:center; font-weight:700; background:var(--muted); }
+  .case-title{ margin:8px 0; padding:14px; border:1px solid var(--border); text-align:center; font-weight:700; background:linear-gradient(#eee,#bbb); }
   /* collaborator and right info */
   .row{ display:flex; gap:10px; }
   .left{ flex:1; }
@@ -22,11 +24,11 @@
   .right .field{ display:flex; justify-content:space-between; padding:6px 4px; border-bottom:1px dotted var(--border); font-size:13px; }
   .right .field:last-child{ border-bottom:none; }
   /* Fishbone area */
-  .fishbone{ margin-top:12px; display:grid; grid-template-columns: 250px 250px 250px; gap:12px; align-items:start; }
+  .fishbone{ margin-top:8px; display:grid; grid-template-columns: 250px 250px 250px; gap:12px; align-items:start; }
   .column{ background:transparent; }
   .box{ border:1px solid var(--border); padding:10px; min-height:60px; background:linear-gradient(#ffffff,#f9f9f9); }
   .gray{ background:var(--accent); padding: 18px; color:#222; text-align:center; font-weight:600; }
-  .big-right{ border:1px solid var(--border); background:linear-gradient(#a9a9a9,#acacac); min-height:240px; display:flex; align-items:center; justify-content:center; font-size:28px; font-weight:600; }
+  .big-right{ border:1px solid var(--border); background:linear-gradient(#ddd,#888); min-height:240px; display:flex; align-items:center; justify-content:center; font-size:28px; font-weight:600; }
   .label{ text-align:center; margin-bottom:10px; font-weight:700; color:#555; }
   .small{ contenteditable="true"; font-size:13px; color:#444; }
   /* footer with measure boxes */
@@ -62,7 +64,8 @@
             border-left: 10px solid #004466;
         }
    
-   /* responsive */
+   
+  /* responsive */
   @media(max-width:980px){
     .row{ flex-direction:column; }
     .fishbone{ grid-template-columns: 1fr; }
@@ -117,11 +120,11 @@
     </div>
   </div>
 
-  <div class="case-title" contenteditable="true">tela danificada</div>
+  <div class="case-title" contenteditable="true" spellcheck="false">Tela danificada</div>
 
   <div class="row">
     <div class="left" style="margin-left: 12px">
-      <div style="margin-bottom:6px;" contenteditable="true"><strong>Colaborador:</strong> teste1</div>
+      <div style="padding:4px; background:linear-gradient(#c9c9c9,#ccc);" contenteditable="true" spellcheck="false"><strong>Colaborador:</strong> Cleiton W. Zakorchini</div>
       <div class="fishbone">
         <div class="column">
           <div class="label gray">Material</div>
@@ -149,7 +152,7 @@
           <div class="hexagon"></div>
 	</div>
 	
-	<div class="fishbone">
+	<div style="height:10px"></div><div class="fishbone">
 	<div class="column">
 		<div class="box small" contenteditable="true">- Checar funcionamento do contator de aquecimento, corrigir falha de montagem, eliminar falha, testar ciclos junto à produção e liberar</div>
         <div class="label gray" style="margin-top: 10px">Medida</div>
@@ -171,13 +174,13 @@
     <div class="right">
       <div class="field"><div>Chapa:</div><div id="meuDiv" contenteditable="true">37002824</div></div>
 
-      <div class="field"><div>Equipamento:</div><div id="meuDiv1" contenteditable="true">petewe</div></div>
+      <div class="field" spellcheck="false"><div>Equipamento:</div><div id="meuDiv1" contenteditable="true">Petewe</div></div>
 
       <div class="field"><div>Inventário SAP:</div><div id="meuDiv2" contenteditable="true">12345678</div></div>
 
       <div class="field"><div>Ordem PM:</div><div id="meuDiv3" contenteditable="true">987654321</div></div>
 
-      <div class="field"><div>Data:</div><div id="data-atual">14/08/2025</div>
+      <div class="field"><div>Data:</div><div id="data-atual">20/08/2025</div>
 
 <script>
   document.getElementById("meuDiv").addEventListener("keydown", function(event) {
